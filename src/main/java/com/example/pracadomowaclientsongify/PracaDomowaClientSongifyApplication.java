@@ -1,5 +1,9 @@
 package com.example.pracadomowaclientsongify;
 
+import com.example.pracadomowaclientsongify.song.dto.request.SongifyPatchRequestDto;
+import com.example.pracadomowaclientsongify.song.dto.request.SongifyPostRequestDto;
+import com.example.pracadomowaclientsongify.song.dto.request.SongifyPutRequestDto;
+import com.example.pracadomowaclientsongify.song.SongifyServerProxy;
 import feign.FeignException;
 import feign.RetryableException;
 import lombok.extern.log4j.Log4j2;
@@ -45,5 +49,4 @@ public class PracaDomowaClientSongifyApplication {
             System.out.println(feignException.status());
         }
     }
-
 }

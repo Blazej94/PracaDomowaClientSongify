@@ -1,4 +1,4 @@
-package com.example.pracadomowaclientsongify;
+package com.example.pracadomowaclientsongify.song;
 
 public record Song(String name, String artist) {
 }

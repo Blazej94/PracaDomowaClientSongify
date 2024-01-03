@@ -1,5 +1,9 @@
-package com.example.pracadomowaclientsongify;
+package com.example.pracadomowaclientsongify.song;
 
+import com.example.pracadomowaclientsongify.song.dto.request.SongifyPatchRequestDto;
+import com.example.pracadomowaclientsongify.song.dto.request.SongifyPostRequestDto;
+import com.example.pracadomowaclientsongify.song.dto.request.SongifyPutRequestDto;
+import com.example.pracadomowaclientsongify.song.dto.response.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,8 +15,9 @@ public interface SongifyServerProxy {
 
     @GetMapping
     ServerSongifyGetResponseDto fetchLimitedSongs(@RequestParam Integer limit);
+
     @GetMapping("/{id}")
-    ServerSongifyGetSingleSongDto fetchSingleSong(@PathVariable Integer id);
+    ServerSongifyGetSingleSongResponseDto fetchSingleSong(@PathVariable Integer id);
 
     @PostMapping
     ServerSongifyPostResponseDto addSong(@RequestBody SongifyPostRequestDto request);
@@ -24,7 +29,5 @@ public interface SongifyServerProxy {
     ServerSongifyPatchResponseDto partiallyUpdateSong(@PathVariable Integer id, @RequestBody SongifyPatchRequestDto request);
 
     @DeleteMapping("/{id}")
-    ServerSongifyDeleteSingleSongDto deleteSingleSong(@PathVariable Integer id);
-
-
+    ServerSongifyDeleteSingleSongResponseDto deleteSingleSong(@PathVariable Integer id);
 }
